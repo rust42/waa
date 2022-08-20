@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: spring-data-demo-1
+  datasource:
+    password: post_pass
+    url: jdbc:postgresql://localhost:5432/reviews-app
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+server:
+  port: 8080
+keycloak:
+  auth-server-url: http://localhost:3002
+  realm: ReviewsApp
+  resource: com.springboot.reviewapp
+  credentials:
+    secret: DzY7j1iVwBcEOaLeVY2CyW5o9tk44n0s
+  bearer-only: true
+  public-client: true
+  securityConstraints:
+     - auth-roles:
+         - spring-user
+       security-collections:
+          - name:
+            patterns:
+              -  /user/*
+
+logging:
+  level:
+    org.keycloak: TRACE

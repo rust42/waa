@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:19.0.1
+    ports: 
+      - "3002:8080"
+    command:
+      - start-dev 
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL_HOST: postgres
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: post_pass
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: post_pass
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+    restart: always
+
+  adminer:
+    image: adminer:latest
+    environment:
+      ADMIN_DEFAULT_SERVER: postgres
+    ports:
+      - "8080:8080"
+
+
+volumes:
+  postgres-data:
+
