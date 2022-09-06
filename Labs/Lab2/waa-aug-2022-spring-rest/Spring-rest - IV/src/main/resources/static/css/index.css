@@ -1,0 +1,18 @@
+.container {
+    width: 50%;
+    margin: auto;
+}
+
+.button {
+    margin: 20px;
+}
+
+.student {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.student-detail {
+    text-align: center;
+    border: 1px solid black;
+}

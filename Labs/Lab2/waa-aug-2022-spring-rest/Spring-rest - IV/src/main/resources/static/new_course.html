@@ -1,0 +1,42 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>New Course</title>
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="css/new.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="container">
+    <a href="/courses.html">All Courses</a>
+
+    <h2>Add new Course</h2>
+    <hr />
+    <div>
+        <form onsubmit="return submitForm(event)" action="#">
+            <div class="wrapper">
+                <div class="input-item">
+                    <label>Course Name</label>
+                    <input id="course_name_input" type="text" name="course_name" />
+                </div>
+
+                <div class="input-item">
+                    <label>Course Code</label>
+                    <input id="course_code_input" type="text" name="course_code" />
+                </div>
+
+                <div class="input-item">
+                    <button type="submit">
+                        Create New
+                    </button>
+                    <div></div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script src="/scripts/new_course.js" type="application/javascript"></script>
+</body>
+</html>

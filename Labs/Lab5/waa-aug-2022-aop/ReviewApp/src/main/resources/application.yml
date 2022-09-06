@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: product-review-app
+  datasource:
+    password: post_pass
+    url: jdbc:postgresql://localhost:5432/product-review-app
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+server:
+  port: 8080

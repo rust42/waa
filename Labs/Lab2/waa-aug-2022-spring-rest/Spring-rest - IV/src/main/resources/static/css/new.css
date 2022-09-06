@@ -1,0 +1,9 @@
+.wrapper {
+    display: grid;
+}
+
+.input-item {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    padding: 10px;
+}

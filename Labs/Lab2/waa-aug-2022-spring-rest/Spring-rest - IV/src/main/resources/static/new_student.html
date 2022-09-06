@@ -1,0 +1,57 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>New Student</title>
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="css/new.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="container">
+    <a href="/students.html">All Students</a>
+
+    <h2>Add new Student</h2>
+    <hr />
+    <div>
+        <form onsubmit="return submitForm(event)" action="#">
+            <div class="wrapper">
+            <div class="input-item">
+                <label>First name</label>
+                <input id="first_name_input" type="text" name="first_name" />
+            </div>
+
+            <div class="input-item">
+                <label>Last name</label>
+                <input id="last_name_input" type="text" name="last_name" />
+            </div>
+
+            <div class="input-item">
+                <label>Email</label>
+                <input id="email_input" type="text" name="email" />
+            </div>
+
+            <div class="input-item">
+                <label>Major</label>
+                <input id="major_input" type="text" name="major" />
+            </div>
+
+            <div class="input-item">
+                <label>GPA</label>
+                <input id="gpa_input" type="number" max="4.0" step="0.1" min="0.0" name="gpa" />
+            </div>
+
+            <div class="input-item">
+                <button type="submit">
+                    Create New
+                </button>
+                <div></div>
+            </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script src="/scripts/new_student.js" type="application/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>Student Courses</title>
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="container">
+
+    <h2 id="student_name"></h2>
+    <form id="assign_course_form" onsubmit="return assignCourse(event)" action="#">
+        <select id="courses_select">
+        </select>
+        <button type="submit">Assign</button>
+    </form>
+    <div id="root">
+    </div>
+    <script src="/scripts/assign_courses.js" type="module"></script>
+    <script src="/scripts/add_course.js" type="application/javascript"></script>
+</div>
+</body>
+</html>
