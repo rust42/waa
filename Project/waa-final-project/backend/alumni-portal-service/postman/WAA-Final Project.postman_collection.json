@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "8a211823-7fc9-42a0-91d1-7d9ce5b0b546",
+		"name": "WAA-Final Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21672399"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/categories",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"product 1 spring12 sds\",\n    \"price\": 220,\n    \"rating\": 3,\n    \"category\": {\n        \"id\": 3\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/reviews",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment\": \"comment 3 spring12 review\",\n    \"product\": {\n    \t\"id\": 1\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/reviews",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/products/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get token",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "authUrl",
+							"value": "http://localhost:18080/auth/realms/WaaProject/protocol/openid-connect/auth",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:18080/auth/realms/WaaProject/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "jwtToken",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code_with_pkce",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user3",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJDZG83ajEta3RKaFhWdFFhSnNnUW93U3lJUTBUdW1EUHZNV1hFbXVxeV9nIn0.eyJleHAiOjE2NTkyNDIyMDMsImlhdCI6MTY1OTIzODYwMywianRpIjoiMjU5NDE1OTctMWU3OS00ZWU2LWEzN2ItOGU5NzQzM2Y2NmE0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDoxODA4MC9hdXRoL3JlYWxtcy9NeVByb2plY3QiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZmQ2MDY2NjgtODgxNC00NzZmLTljOTUtZjUzOGFkYjVlOThmIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibXktYXBwLWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiI5ZDNkYjViNS05ZGJlLTQ0ZDEtYmU5My1lMzVkNzg1MzdjODkiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtbXlwcm9qZWN0Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsIlVTRVIiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiOWQzZGI1YjUtOWRiZS00NGQxLWJlOTMtZTM1ZDc4NTM3Yzg5IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiZm4xIGxuMSIsInByZWZlcnJlZF91c2VybmFtZSI6InVzZXIxIiwiZ2l2ZW5fbmFtZSI6ImZuMSIsImZhbWlseV9uYW1lIjoibG4xIiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20ifQ.Qp9vZz6jweH6zjojwJEf_2qjPF8DcCV2ZyJq_i3VoddaES8of7fRrsjtVb1QOGa8q6d934ctvrZ9nbTM7Db7Dev5AhgnJ0hTHm3JmneZKAFPvuePMY9fHtg79xk3PVcbhZvYJGCpWchaWWdOKoRIGCIru3i0nxFGXSB9_jMKKqoSL_omMC3fVNPDjlJdx4dL9Qht5bw3cuewSYrKvOU0abA_1WzA7d_L6ZYq8Ad7ajH9dcWJxFnU8WScoLHzFfsKhOGgXY6tUCE2bArEj7XE4sNOglBa7p7ow804AZz7xXCDAOoZTMmo8wt43wYvZsIA6CwEiAPQqgnGfnp-mbAClA",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "my-app-client",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:18080/auth/realms/WaaProject/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "18080",
+					"path": [
+						"auth",
+						"realms",
+						"WaaProject",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/reviews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/reviews",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwtToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

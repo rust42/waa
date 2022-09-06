@@ -1,0 +1,18 @@
+.flex-item {
+    padding: 20px;
+    margin: 20px;
+}
+
+li.flex-item {
+    list-style: none;
+}
+
+li.flex-item a {
+    text-decoration: none;
+
+}
+
+.navbar-brand{
+    margin-left: 10px;
+    font-weight: bold;
+}

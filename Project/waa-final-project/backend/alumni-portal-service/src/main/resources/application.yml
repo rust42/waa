@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: alumni_portal_service
+  datasource:
+    username: postgres
+    password: example
+    url: jdbc:postgresql://localhost:5432/waa_project
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      continue-on-error: false
+      data-locations: classpath:./tenant2.sql, classpath:./data.sql
+  mvc.pathmatch.matching-strategy: ANT_PATH_MATCHER
+
+server:
+  port: 8080
+
+keycloak:
+  realm: WaaProject
+  auth-server-url: http://localhost:18080/auth
+  resource: my-app-client
+  public-client: true
+  bearer-only: true
+
+config:
+  url: http://localhost:8080
+  upload-dir: ./uploads
+app:
+  firebase-configuration-file: waa-project-fd157-firebase-adminsdk-5v1ev-ea480f3a22.json
+
+multi-tenant:
+  default_tenant: public
+#tenant:
+#  map:
+#    "yahoo.com": tenant2
+

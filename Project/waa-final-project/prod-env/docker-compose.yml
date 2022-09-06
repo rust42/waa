@@ -1,0 +1,66 @@
+version: '3'
+
+volumes:
+  keycloak_postgres_data:
+    driver: local
+  app_postgres_data:
+    driver: local
+
+services:
+  app-db:
+    image: postgres
+    volumes:
+      - app_postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: waa_project
+
+  keycloak-db:
+    image: tanvanmaiuni/waa-project-keycloak-db:latest
+    volumes:
+      - keycloak_postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:legacy
+    volumes:
+      - ./keycloak-imports:/imports
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: keycloak-db
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+      KEYCLOAK_IMPORT: /imports/WaaProject-realm.json
+      # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+      #JDBC_PARAMS: "ssl=true"
+    ports:
+      - 18080:8080
+    depends_on:
+      - keycloak-db
+
+  server-app:
+    image: tanvanmaiuni/alumni_portal_service:latest
+    ports:
+      - 8080:8080
+    depends_on:
+      - app-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://app-db:5432/waa_project
+      #logging_level_org_keycloak_adapters: DEBUG
+      keycloak_auth-server-url: http://keycloak:8080/auth
+      KEYCLOAK_HOSTNAME: localhost
+
+  client-app:
+    image: tanvanmaiuni/alumni_portal_client:latest
+    ports:
+      - 3000:3000
